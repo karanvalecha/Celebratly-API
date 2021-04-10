@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'profiles', to: 'profiles#index'
+  resources :users
+  resources :events
   devise_for :users,
               path: '',
               path_names: {
