@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'text_status/show'
   resources :users
   resources :events do
     resources :occurrences, shallow: true

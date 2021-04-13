@@ -45,12 +45,8 @@ gem "airrecord", "~> 1.0"
 
 gem "jsonapi-serializer", "~> 2.2"
 
-gem "hashie", "~> 4.1"
-
 gem "jbuilder", "~> 2.11"
-
-gem "ice_cube", "~> 0.16.3"
 
 gem "montrose", "~> 0.12.0"
 
-gem "chronic", "~> 0.10.2"
+gem "mini_magick", "~> 4.11"
