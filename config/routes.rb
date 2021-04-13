@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :users
-  resources :events
+  resources :events do
+    resources :occurrences, shallow: true
+  end
   devise_for :users,
               path: '',
               path_names: {

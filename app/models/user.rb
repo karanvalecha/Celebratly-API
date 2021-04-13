@@ -22,12 +22,18 @@ class User < ApplicationRecord
   def create_anniversary_events
     events.system_generated.destroy_all
 
+    year = Date.today.year
+
     events.system_generated.create(
-      start_date: dob, end_date: dob, name: "Happy Birthday #{full_name}",
+      start_date: dob.change(year: year),
+      end_date: dob.change(year: year+5),
+      name: "Happy Birthday #{full_name}",
       color: '#825a2c'
     )
     events.system_generated.create(
-      start_date: doj, end_date: doj, name: "Happy Work Anniversary #{full_name}",
+      start_date: doj.change(year: year),
+      end_date: doj.change(year: year+5),
+      name: "Happy Work Anniversary #{full_name}",
       color: '#0077B5'
     )
   end
