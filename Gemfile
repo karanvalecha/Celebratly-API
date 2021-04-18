@@ -50,3 +50,7 @@ gem "jbuilder", "~> 2.11"
 gem "montrose", "~> 0.12.0"
 
 gem "mini_magick", "~> 4.11"
+
+gem "streamio-ffmpeg", "~> 3.0"
+
+gem "ice_cube", "~> 0.16.3"

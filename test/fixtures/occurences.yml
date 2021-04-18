@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event: one
+  expires_at: 2021-04-18 18:40:18
+  note: MyText
+  final_video_id: 1
+  start_at: 2021-04-18 18:40:18
+  end_at: 2021-04-18 18:40:18
+
+two:
+  event: two
+  expires_at: 2021-04-18 18:40:18
+  note: MyText
+  final_video_id: 1
+  start_at: 2021-04-18 18:40:18
+  end_at: 2021-04-18 18:40:18

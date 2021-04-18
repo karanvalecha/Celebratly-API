@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :jwt_authenticatable, jwt_revocation_strategy: JwtBlacklist
 
-  has_many :events, as: :creator
+  has_many :events, as: :reference
 
   after_save :create_anniversary_events
 
@@ -22,19 +22,15 @@ class User < ApplicationRecord
   def create_anniversary_events
     events.system_generated.destroy_all
 
-    year = Date.today.year
-
-    events.system_generated.create(
-      start_date: dob.change(year: year),
-      end_date: dob.change(year: year+5),
+    events.system_generated.create!(
+      start_at: dob.beginning_of_day.to_s,
       name: "Happy Birthday #{full_name}",
       color: '#825a2c'
-    )
-    events.system_generated.create(
-      start_date: doj.change(year: year),
-      end_date: doj.change(year: year+5),
+    ).create_system_occurence
+    events.system_generated.create!(
+      start_at: doj.beginning_of_day.to_s,
       name: "Happy Work Anniversary #{full_name}",
       color: '#0077B5'
-    )
+    ).create_system_occurence
   end
 end

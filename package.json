@@ -1,0 +1,26 @@
+{
+  "name": "optimize-prime",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karanvalecha/optimize-prime.git"
+  },
+  "author": "Karan Valecha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karanvalecha/optimize-prime/issues"
+  },
+  "homepage": "https://github.com/karanvalecha/optimize-prime#readme",
+  "dependencies": {
+    "videoshow": "^0.1.12"
+  }
+}

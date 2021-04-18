@@ -101,6 +101,7 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
+    ice_cube (0.16.3)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
     jsonapi-serializer (2.2.0)
@@ -123,6 +124,7 @@ GEM
     montrose (0.12.0)
       activesupport (>= 5.2, <= 7.0)
     msgpack (1.4.2)
+    multi_json (1.15.0)
     multipart-post (2.1.1)
     net-http-persistent (4.0.1)
       connection_pool (~> 2.2)
@@ -182,6 +184,8 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    streamio-ffmpeg (3.0.2)
+      multi_json (~> 1.8)
     thor (1.1.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
@@ -206,6 +210,7 @@ DEPENDENCIES
   byebug
   devise (~> 4.7)
   devise-jwt (~> 0.8.1)
+  ice_cube (~> 0.16.3)
   jbuilder (~> 2.11)
   jsonapi-serializer (~> 2.2)
   listen (~> 3.3)
@@ -216,6 +221,7 @@ DEPENDENCIES
   rack-cors (~> 1.1)
   rails (~> 6.1.3, >= 6.1.3.1)
   spring
+  streamio-ffmpeg (~> 3.0)
   tzinfo-data
 
 RUBY VERSION
