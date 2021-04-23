@@ -47,5 +47,7 @@ module OptimizePrime
         )
       end
     end
+
+    config.active_storage.service = :cloudinary
   end
 end

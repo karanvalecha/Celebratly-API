@@ -6,8 +6,13 @@ class User < ApplicationRecord
          :jwt_authenticatable, jwt_revocation_strategy: JwtBlacklist
 
   has_many :events, as: :reference
+  has_one_attached :profile_photo, service: :cloudinary_profiles
 
   after_save :create_anniversary_events
+
+  def slug
+    "#{full_name.split(' ').first} #{id}".parameterize
+  end
 
   def generate_jwt
     JWT.encode(

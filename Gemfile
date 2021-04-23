@@ -54,3 +54,7 @@ gem "mini_magick", "~> 4.11"
 gem "streamio-ffmpeg", "~> 3.0"
 
 gem "ice_cube", "~> 0.16.3"
+
+gem "dotenv-rails", "~> 2.7"
+
+gem "cloudinary", "~> 1.20"
