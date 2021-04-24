@@ -58,3 +58,9 @@ gem "ice_cube", "~> 0.16.3"
 gem "dotenv-rails", "~> 2.7"
 
 gem "cloudinary", "~> 1.20"
+
+gem "recurring_select", "~> 3.0"
+
+gem "sprockets", "~> 4.0"
+
+gem "jquery-rails", "~> 4.4"

@@ -1,4 +1,4 @@
-class ApplicationController < ActionController::API
+class ApplicationController < ActionController::Base
   include ActionController::HttpAuthentication::Token::ControllerMethods
 
   respond_to :json
