@@ -8,6 +8,10 @@ class User < ApplicationRecord
   has_many :events, as: :reference
   has_one_attached :profile_photo, service: :cloudinary_profiles
 
+  before_save do
+    self.email = email.strip
+  end
+
   after_save :create_anniversary_events
 
   def slug
