@@ -17,5 +17,5 @@ Rails.application.routes.draw do
               controllers: {
                sessions: 'sessions',
                registrations: 'registrations'
-              }
+              }, defaults: { format: :json }
 end
