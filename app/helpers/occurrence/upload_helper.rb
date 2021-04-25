@@ -1,0 +1,2 @@
+module Occurrence::UploadHelper
+end

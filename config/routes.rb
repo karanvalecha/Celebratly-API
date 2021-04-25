@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resources :events do
     resources :occurrences, shallow: true
   end
+
+  resources :occurrences do
+    resources :image_upload, only: [:create, :destroy, :index], module: 'occurrences'
+  end
   devise_for :users,
               path: '',
               path_names: {

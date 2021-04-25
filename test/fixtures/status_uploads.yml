@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  upload_type: 
+  occurrence: one
+  user: one
+  url: MyText
+  tag: MyString
+
+two:
+  upload_type: 
+  occurrence: two
+  user: two
+  url: MyText
+  tag: MyString
