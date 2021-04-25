@@ -9,7 +9,7 @@ class Event < ApplicationRecord
 
   has_many :occurrences, dependent: :destroy
 
-  after_save :create_occurrences
+  after_save :create_custom_event_occurrences
 
   before_save do
     if occurence_rule.empty?
@@ -53,6 +53,7 @@ class Event < ApplicationRecord
   end
 
   def create_system_occurence
+    return unless system_generated?
     return unless next_occurrence_this_year
 
     occurrences.create(
@@ -62,7 +63,9 @@ class Event < ApplicationRecord
     )
   end
 
-  def create_occurrences
+  def create_custom_event_occurrences
+    return if system_generated?
+
     occurrences.destroy_all
 
     schedule_with_rule.occurrences_between(start_at, end_at).each_with_index do |date, index|

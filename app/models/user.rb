@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_one_attached :profile_photo, service: :cloudinary_profiles
 
   before_save do
-    self.email = email.strip
+    @email = email.strip
   end
 
   after_save :create_anniversary_events
