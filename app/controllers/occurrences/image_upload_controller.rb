@@ -10,7 +10,8 @@ class Occurrences::ImageUploadController < ApplicationController
       filename: "#{@occurrence.slug}:#{current_user.id}"
     )
     @status_upload.save!
-    head 201
+
+    render 'status_uploads/show'
   end
 
   def index
