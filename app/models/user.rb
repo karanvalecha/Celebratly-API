@@ -18,6 +18,11 @@ class User < ApplicationRecord
     "#{full_name.split(' ').first} #{id}".parameterize
   end
 
+  def short_name
+    parts = full_name.split(' ')
+    parts.first + ' ' + parts.last
+  end
+
   def generate_jwt
     JWT.encode(
       {
@@ -31,14 +36,14 @@ class User < ApplicationRecord
   def create_anniversary_events
     events.system_generated.destroy_all
 
-    events.system_generated.create!(
+    events.system_generated.birthday.create!(
       start_at: dob.beginning_of_day.to_s,
-      name: "Happy Birthday #{full_name}",
+      name: "Happy Birthday #{short_name}",
       color: '#825a2c'
     ).create_system_occurence
-    events.system_generated.create!(
+    events.system_generated.work_anniversary.create!(
       start_at: doj.beginning_of_day.to_s,
-      name: "Happy Work Anniversary #{full_name}",
+      name: "Happy Work Anniversary #{short_name}",
       color: '#0077B5'
     ).create_system_occurence
   end

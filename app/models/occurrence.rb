@@ -2,7 +2,7 @@ class Occurrence < ApplicationRecord
   belongs_to :event
 
   has_one :reference, through: :event
-  has_many :status_uploads
+  has_many :status_uploads, dependent: :destroy
 
   def slug
     "#{event.name} #{id}".parameterize

@@ -4,7 +4,7 @@ class OccurrencesController < ApplicationController
   # GET /occurrences
   # GET /occurrences.json
   def index
-    @occurrences = Occurrence.all
+    @occurrences = Occurrence.order(start_at: :asc).all
   end
 
   # GET /occurrences/1
