@@ -60,15 +60,16 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
-    airrecord (1.0.5)
+    airrecord (1.0.6)
       faraday (>= 0.10, < 2.0)
       net-http-persistent (>= 2.9)
     aws_cf_signer (0.1.3)
     bcrypt (3.1.16)
-    bootsnap (1.7.3)
+    bootsnap (1.7.4)
       msgpack (~> 1.0)
     builder (3.2.4)
     byebug (11.1.3)
+    chronic (0.10.2)
     cloudinary (1.20.0)
       aws_cf_signer
       rest-client (>= 2.0.0)
@@ -80,7 +81,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.8)
-    connection_pool (2.2.3)
+    connection_pool (2.2.5)
     crass (1.0.6)
     devise (4.7.3)
       bcrypt (~> 3.0)
@@ -109,11 +110,10 @@ GEM
       concurrent-ruby (~> 1.0)
     erubi (1.10.0)
     execjs (2.7.0)
-    faraday (1.3.0)
-      faraday-net_http (~> 1.0)
+    faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
-      ruby2_keywords
-    faraday-net_http (1.0.1)
+    fcm (1.0.2)
+      faraday (~> 1.0.0)
     ffi (1.15.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -131,7 +131,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jsonapi-serializer (2.2.0)
       activesupport (>= 4.2)
-    jwt (2.2.2)
+    jwt (2.2.3)
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -147,7 +147,6 @@ GEM
     mime-types-data (3.2021.0225)
     mini_magick (4.11.0)
     mini_mime (1.0.3)
-    mini_portile2 (2.5.0)
     minitest (5.14.4)
     montrose (0.12.0)
       activesupport (>= 5.2, <= 7.0)
@@ -158,8 +157,7 @@ GEM
       connection_pool (~> 2.2)
     netrc (0.11.0)
     nio4r (2.5.7)
-    nokogiri (1.11.3)
-      mini_portile2 (~> 2.5.0)
+    nokogiri (1.11.3-x86_64-darwin)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.2.3)
@@ -215,7 +213,6 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    ruby2_keywords (0.0.4)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -236,6 +233,8 @@ GEM
       sprockets (>= 3.0.0)
     streamio-ffmpeg (3.0.2)
       multi_json (~> 1.8)
+    sucker_punch (3.0.1)
+      concurrent-ruby (~> 1.0)
     thor (1.1.0)
     tilt (2.0.10)
     tzinfo (2.0.4)
@@ -253,10 +252,12 @@ GEM
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    whenever (1.0.0)
+      chronic (>= 0.6.3)
     zeitwerk (2.4.2)
 
 PLATFORMS
-  ruby
+  x86_64-darwin-19
 
 DEPENDENCIES
   airrecord (~> 1.0)
@@ -266,6 +267,7 @@ DEPENDENCIES
   devise (~> 4.7)
   devise-jwt (~> 0.8.1)
   dotenv-rails (~> 2.7)
+  fcm
   ice_cube (~> 0.16.3)
   jbuilder (~> 2.11)
   jquery-rails (~> 4.4)
@@ -281,10 +283,12 @@ DEPENDENCIES
   spring
   sprockets (~> 4.0)
   streamio-ffmpeg (~> 3.0)
+  sucker_punch (~> 3.0)
   tzinfo-data
+  whenever
 
 RUBY VERSION
    ruby 2.6.6p146
 
 BUNDLED WITH
-   1.17.3
+   2.2.16
