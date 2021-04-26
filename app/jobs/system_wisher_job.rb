@@ -22,8 +22,10 @@ class SystemWisherJob
   def get_occurence_title occurrence
     if occurrence.event.event_type == 'birthday'
       title = "Happy Birthday #{occurrence.event.reference.full_name}"
-    else
+    elsif occurrence.event.event_type == 'work_anniversary'
       title = "Happy Work anniversary #{occurrence.event.reference.full_name}"
+    else
+      title = "#{occurrence.title} (#{occurrence.caption})"
     end
   end
 end
