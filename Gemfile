@@ -64,3 +64,7 @@ gem "recurring_select", "~> 3.0"
 gem "sprockets", "~> 4.0"
 
 gem "jquery-rails", "~> 4.4"
+
+gem 'fcm'
+
+gem 'sucker_punch', '~> 3.0'

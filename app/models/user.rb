@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :events, as: :reference
   has_one_attached :profile_photo, service: :cloudinary_profiles
 
+  scope :all_except, ->(user) { where.not(id: user) }
+
   before_save do
     @email = email.strip
   end

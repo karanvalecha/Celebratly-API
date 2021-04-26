@@ -50,6 +50,8 @@ module OptimizePrime
 
     config.active_storage.service = :cloudinary
 
+    config.active_job.queue_adapter = :sucker_punch
+
     config.middleware.use ActionDispatch::Flash
   end
 end

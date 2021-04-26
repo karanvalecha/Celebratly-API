@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2021_04_25_120820) do
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "start_at"
     t.datetime "end_at"
-    t.string "event"
+    t.string "event_type"
     t.index ["reference_type", "reference_id"], name: "index_events_on_creator"
   end
 
