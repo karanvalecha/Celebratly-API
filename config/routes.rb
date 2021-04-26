@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :occurrences do
     resources :image_upload, only: [:create, :destroy, :index], module: 'occurrences'
-    resource :publish, only: [:show], module: 'occurrences', controller: 'publish'
+    resource :publish, only: [:create], module: 'occurrences', controller: 'publish'
   end
 
   devise_for :users,
