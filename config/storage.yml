@@ -14,6 +14,10 @@ cloudinary_images:
   service: Cloudinary
   folder: images
 
+cloudinary_compiled_videos:
+  service: Cloudinary
+  folder: compiled_videos
+
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
 #   service: S3

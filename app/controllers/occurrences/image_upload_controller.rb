@@ -1,7 +1,7 @@
 class Occurrences::ImageUploadController < ApplicationController
   before_action do
     @occurrence = Occurrence.find(params[:occurrence_id])
-    @status_upload = StatusUpload.find_or_initialize_by(occurrence: @occurrence, user: current_user)
+    @status_upload = StatusUpload.image.find_or_initialize_by(occurrence: @occurrence, user: current_user)
   end
 
   def create
