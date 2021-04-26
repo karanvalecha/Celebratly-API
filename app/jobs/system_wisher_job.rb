@@ -25,7 +25,7 @@ class SystemWisherJob
     elsif occurrence.event.event_type == 'work_anniversary'
       title = "Happy Work anniversary #{occurrence.event.reference.full_name}"
     else
-      title = "#{occurrence.title} (#{occurrence.caption})"
+      title = occurrence.title
     end
   end
 end
