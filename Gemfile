@@ -68,3 +68,8 @@ gem "jquery-rails", "~> 4.4"
 gem 'fcm'
 
 gem 'sucker_punch', '~> 3.0'
+
+gem 'slack-ruby-client'
+
+gem 'httparty', '~> 0.13.7'
+
