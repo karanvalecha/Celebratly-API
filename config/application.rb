@@ -31,6 +31,7 @@ module OptimizePrime
     #
     # config.time_zone = "Central Time (US & Canada)"
     config.eager_load_paths << Rails.root.join("app/assets/audios")
+    config.eager_load_paths << Rails.root.join("app/services")
 
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
@@ -53,5 +54,7 @@ module OptimizePrime
     config.active_job.queue_adapter = :sucker_punch
 
     config.middleware.use ActionDispatch::Flash
+
+    config.time_zone = 'Mumbai'
   end
 end
