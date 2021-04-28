@@ -71,3 +71,6 @@ gem 'sucker_punch', '~> 3.0'
 
 gem 'httparty', '~> 0.13.7'
 
+gem 'pdfkit', '~> 0.8.2'
+
+gem 'wkhtmltopdf-binary-edge'

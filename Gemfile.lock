@@ -168,6 +168,7 @@ GEM
     nokogiri (1.11.3-x86_64-darwin)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pdfkit (0.8.5)
     pg (1.2.3)
     puma (5.2.2)
       nio4r (~> 2.0)
@@ -260,6 +261,7 @@ GEM
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    wkhtmltopdf-binary-edge (0.12.6.0)
     zeitwerk (2.4.2)
 
 PLATFORMS
@@ -283,6 +285,7 @@ DEPENDENCIES
   listen (~> 3.3)
   mini_magick (~> 4.11)
   montrose (~> 0.12.0)
+  pdfkit (~> 0.8.2)
   pg (~> 1.1)
   puma (~> 5.0)
   rack-cors (~> 1.1)
@@ -293,6 +296,7 @@ DEPENDENCIES
   streamio-ffmpeg (~> 3.0)
   sucker_punch (~> 3.0)
   tzinfo-data
+  wkhtmltopdf-binary-edge
 
 RUBY VERSION
    ruby 2.6.6p146
