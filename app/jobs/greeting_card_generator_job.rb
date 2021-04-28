@@ -5,90 +5,58 @@ class GreetingCardGeneratorJob
     kit = PDFKit.new(<<-HTML)
       <!DOCTYPE html>
       <style>
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        font-family: Arial;
-      }
-
-      .header {
-        text-align: center;
-        padding: 32px;
-      }
-
-      .row {
-        display: -ms-flexbox; /* IE10 */
-        display: flex;
-        -ms-flex-wrap: wrap; /* IE10 */
-        flex-wrap: wrap;
-        padding: 0 4px;
-      }
-
-      /* Create four equal columns that sits next to each other */
-      .column {
-        -ms-flex: 25%; /* IE10 */
-        flex: 25%;
-        max-width: 25%;
-        padding: 0 4px;
-      }
-
-      .column img {
-        margin-top: 8px;
-        vertical-align: middle;
-        width: 100%;
-      }
-
-      /* Responsive layout - makes a two column-layout instead of four columns */
-      @media screen and (max-width: 800px) {
-        .column {
-          -ms-flex: 50%;
-          flex: 50%;
-          max-width: 50%;
+        body {
+          background-color: #05a1a1;
         }
-      }
 
-      /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-      @media screen and (max-width: 600px) {
-        .column {
-          -ms-flex: 100%;
-          flex: 100%;
-          max-width: 100%;
+        .birthday-card {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          text-align: center;
+          margin: auto;
+          width: 50%;
+          border: 3px solid green;
+          padding: 10px;
+          max-width: 600px;
+          background-color: white;
+          box-shadow: 0 24px 40px -8px #311B92;
+          width: 100%;
+          height: 100%;
         }
-      }
+
+        .birthday-card img {
+          width: 100%;
+        }
+
+        .page-break {
+          page-break-after: always;
+        }
+
+        .page-break:last-child {
+          page-break-after: avoid;
+        }
       </style>
-      <body>
-        <!-- Header -->
-        <div class="header">
-          <h1>Responsive Image Grid</h1>
-          <p>Resize the browser window to see the responsive effect.</p>
-        </div>
 
-        <!-- Photo Grid -->
-        <div class="row"> 
-          <div class="column">
-            <img src="https://picsum.photos/200" style="width:100%">
-            <img src="https://picsum.photos/200" style="width:100%">
-            <img src="https://picsum.photos/200" style="width:100%">
-            <img src="https://picsum.photos/200" style="width:100%">
-            <img src="https://picsum.photos/200" style="width:100%">
-            <img src="https://picsum.photos/200" style="width:100%">
-            <img src="https://picsum.photos/200" style="width:100%">
-          </div>
-          <div class="column">
-            <img src="https://picsum.photos/200" style="width:100%">
-            <img src="https://picsum.photos/200" style="width:100%">
-            <img src="https://picsum.photos/200" style="width:100%">
-            <img src="https://picsum.photos/200" style="width:100%">
-            <img src="https://picsum.photos/200" style="width:100%">
-            <img src="https://picsum.photos/200" style="width:100%">
-          </div>
+      <body>
+        <div class="birthday-card page-break">
+          <img src="https://image.freepik.com/free-vector/surprise-theme-happy-birthday-card-illustration_1344-199.jpg" alt="Birthday image">
+          <h1>Happy Birthday. Hope you are having a great day.</h1>          
+          <h3>from Pooja</h3>
+        </div>
+        <div class="birthday-card page-break">
+          <img src="https://picsum.photos/200" alt="Birthday image">
+          <h1>Happy Birthday. Hope you are having a great day.</h1>          
+          <h3>from Karan</h3>
+        </div>
+        <div class="birthday-card page-break">
+          <img src="https://picsum.photos/200" alt="Birthday image">
+          <h1>Happy Birthday. Hope you are having a great day.</h1>          
+          <h3>from Karan</h3>
         </div>
       </body>
     HTML
 
-    kit.to_file("pdfkit_complicated_example1.pdf")
+    kit.to_file("happy_birthday2.pdf")
   end
 end
