@@ -74,6 +74,6 @@ class SendSlackNotification < ActiveJob::Base
   end
 
   def get_video_message occurrence
-    "<https://res.cloudinary.com/hbwugi9ry/video/upload/v1619422665/compiled_videos/3y2zobjer97wa4xe4xivfvv9k1s2.mp4|Click here to play the video>"
+    "#{occurrence.published_video.url}|Click here to play the video>"
   end
 end

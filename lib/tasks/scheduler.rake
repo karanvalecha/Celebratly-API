@@ -6,4 +6,5 @@ end
 
 task :send_wish_notification => :environment do
   SystemWisherJob.new.perform
+  SendSlackNotification.new.perform
 end
