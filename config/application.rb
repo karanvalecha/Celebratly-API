@@ -55,6 +55,6 @@ module OptimizePrime
 
     config.middleware.use ActionDispatch::Flash
 
-    config.time_zone = 'Chennai'
+    config.time_zone = 'Mumbai'
   end
 end
