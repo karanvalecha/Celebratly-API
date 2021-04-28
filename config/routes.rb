@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :occurrences do
-    resources :image_upload, only: [:create, :destroy, :index], module: 'occurrences'
+    resources :image_upload, module: 'occurrences'
     resource :publish, only: [:create], module: 'occurrences', controller: 'publish'
   end
 
