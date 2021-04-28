@@ -54,5 +54,7 @@ module OptimizePrime
     config.active_job.queue_adapter = :sucker_punch
 
     config.middleware.use ActionDispatch::Flash
+
+    config.time_zone = 'Chennai'
   end
 end
