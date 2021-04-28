@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :jwt_authenticatable, jwt_revocation_strategy: JwtBlacklist
 
   has_many :events, as: :reference
+  has_many :occurrences, through: :events
   has_one_attached :profile_photo, service: :cloudinary_profiles
 
   scope :all_except, ->(user) { where.not(id: user) }
