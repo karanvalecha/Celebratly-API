@@ -11,7 +11,7 @@ class Event < ApplicationRecord
 
   scope :custom, -> { where(system_generated: [false, nil]) }
 
-  after_save :create_custom_event_occurrences
+  after_save :create_custom_event_occurrences, :custom?
 
   before_save do
     unless custom?
