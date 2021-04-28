@@ -31,7 +31,7 @@ class Occurrences::ImageUploadController < ApplicationController
   def get_file
     if params[:base64]
       StringIO.new(
-        Base64.decode64(params[:base64].split(',')[1])
+        Base64.decode64(params[:base64])
       )
     else
       params[:file]
