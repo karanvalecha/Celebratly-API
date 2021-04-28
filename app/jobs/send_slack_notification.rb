@@ -7,7 +7,7 @@ class SendSlackNotification < ActiveJob::Base
 
     occs_due_today = Occurrence.where("DATE(start_at) = DATE(?)", Date.today).all
     occs_due_today.each do |occurrence|
-      HTTParty.post(
+      response = HTTParty.post(
         slack_hook_url,
         body: get_payload(occurrence),
       )
@@ -66,7 +66,9 @@ class SendSlackNotification < ActiveJob::Base
 
   def get_sub_message occurrence
     if occurrence.event.event_type == 'birthday'
-      sub_message = "Live your life with smiles, not tears. Beat your age with friends and not years. Happy birthday!"
+      sub_message = File.readlines('public/birthday_messages.txt').sample
+    elsif
+      sub_message = File.readlines('public/anniversary_messages.txt').sample
     else
       sub_message = occurrence.title
     end
@@ -74,6 +76,6 @@ class SendSlackNotification < ActiveJob::Base
   end
 
   def get_video_message occurrence
-    "#{occurrence.published_video.url}|Click here to play the video>"
+    "<#{occurrence.published_video.url || "https://res.cloudinary.com/hbwugi9ry/video/upload/v1619422665/compiled_videos/3y2zobjer97wa4xe4xivfvv9k1s2.mp4"}|Click here to play the video>"
   end
 end
