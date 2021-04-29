@@ -2,7 +2,7 @@ class SessionsController < Devise::SessionsController
   respond_to :json
 
   def create
-    unless request.headers['Android-Secret'].present? && request.headers['Android-Secret'] == ENV['ANDROID_SECRET']
+    if ENV['ANDROID_SECRET'].present? && request.headers['Android-Secret'] != ENV['ANDROID_SECRET']
       head :unauthorized and return
     end
 
