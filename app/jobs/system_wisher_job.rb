@@ -14,8 +14,9 @@ class SystemWisherJob
 
   def notification_payload occurrence
     return {
-      "title": get_occurence_title(occurrence),
-      "body": occurrence.caption
+      title: get_occurence_title(occurrence),
+      body: occurrence.caption,
+      image: "https://res.cloudinary.com/hbwugi9ry/video/upload/v1619422665/compiled_videos/3y2zobjer97wa4xe4xivfvv9k1s2.jpg"
     }
   end
 
