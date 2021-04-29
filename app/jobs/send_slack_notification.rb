@@ -61,7 +61,8 @@ class SendSlackNotification < ActiveJob::Base
   end
 
   def get_thumbnil_url occurrence
-    "https://picsum.photos/200"
+    published_video_url = occurrence.published_video.url
+    return published_video_url.sub /\.[^\.]+$/, '.jpg'
   end
 
   def get_sub_message occurrence

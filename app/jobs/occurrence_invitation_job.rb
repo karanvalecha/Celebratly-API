@@ -13,11 +13,10 @@ class OccurrenceInvitationJob
   end
 
   def notification_payload occurrence
-    user_profile_url = "https://picsum.photos/200"
     return {
       title: get_occurence_title(occurrence),
       body: occurrence.caption,
-      image: user_profile_url
+      image: get_thumbnil_url(occurrence)
     }
   end
 
@@ -27,5 +26,10 @@ class OccurrenceInvitationJob
     else
       title = "Its #{occurrence.event.reference.short_name}'s Workiversary"
     end
+  end
+
+  def get_thumbnil_url occurrence
+    published_video_url = occurrence.published_video.url
+    return published_video_url.sub /\.[^\.]+$/, '.jpg'
   end
 end
