@@ -12,7 +12,7 @@ class StatusUploadPolicy
     if upload_start_time.future?
       "Starts in #{distance_of_time_in_words(Time.zone.now, upload_end_time)}"
     else
-      "Ended #{time_ago_in_words(upload_end_time)} ago"
+      "Updated #{time_ago_in_words(upload_end_time)} ago"
     end
   end
 
