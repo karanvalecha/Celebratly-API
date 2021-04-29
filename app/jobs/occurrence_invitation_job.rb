@@ -13,10 +13,11 @@ class OccurrenceInvitationJob
   end
 
   def notification_payload occurrence
+    user_profile_url = "https://picsum.photos/200"
     return {
       title: get_occurence_title(occurrence),
       body: occurrence.caption,
-      image: "https://res.cloudinary.com/hbwugi9ry/video/upload/v1619422665/compiled_videos/3y2zobjer97wa4xe4xivfvv9k1s2.jpg"
+      image: user_profile_url
     }
   end
 

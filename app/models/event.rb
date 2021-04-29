@@ -50,7 +50,7 @@ class Event < ApplicationRecord
       "Wish them a Happy Birthday 🎂"
     elsif work_anniversary?
       year_count = Date.today.year - reference.doj.year
-      "Successfully completed #{pluralize(year_count, 'year')} 🙌"
+      "Successfully completed #{pluralize(year_count, 'year')} with Kiprosh 🙌"
     end
   end
 

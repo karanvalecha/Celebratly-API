@@ -61,7 +61,7 @@ class SendSlackNotification < ActiveJob::Base
   end
 
   def get_thumbnil_url occurrence
-    "https://res.cloudinary.com/hbwugi9ry/video/upload/v1619422665/compiled_videos/3y2zobjer97wa4xe4xivfvv9k1s2.jpg"
+    "https://picsum.photos/200"
   end
 
   def get_sub_message occurrence
