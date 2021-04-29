@@ -14,8 +14,9 @@ class SystemWisherJob
 
   def notification_payload occurrence
     return {
-      "title": get_occurence_title(occurrence),
-      "body": occurrence.caption
+      title: get_occurence_title(occurrence),
+      body: occurrence.caption,
+      image: get_thumbnil_url(occurrence)
     }
   end
 
@@ -27,5 +28,10 @@ class SystemWisherJob
     else
       title = occurrence.title
     end
+  end
+
+  def get_thumbnil_url occurrence
+    published_video_url = occurrence.published_video.url
+    return published_video_url.sub /\.[^\.]+$/, '.jpg'
   end
 end

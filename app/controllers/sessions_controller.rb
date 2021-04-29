@@ -2,6 +2,10 @@ class SessionsController < Devise::SessionsController
   respond_to :json
 
   def create
+    if ENV['ANDROID_SECRET'].present? && request.headers['Android-Secret'] != ENV['ANDROID_SECRET']
+      head :unauthorized and return
+    end
+
     user = User.find_by_email(sign_in_params[:email])
 
     if user
