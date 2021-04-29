@@ -29,7 +29,6 @@ class OccurrenceInvitationJob
   end
 
   def get_thumbnil_url occurrence
-    published_video_url = occurrence.published_video.url
-    return published_video_url.sub /\.[^\.]+$/, '.jpg'
+    occurrence.reference.profile_url
   end
 end

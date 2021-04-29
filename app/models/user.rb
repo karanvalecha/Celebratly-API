@@ -15,7 +15,7 @@ class User < ApplicationRecord
     @email = email.strip.downcase
   end
 
-  after_save :create_anniversary_events
+  after_create :create_anniversary_events
 
   def slug
     "#{full_name.split(' ').first} #{id}".parameterize
