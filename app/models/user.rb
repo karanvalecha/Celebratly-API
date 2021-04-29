@@ -12,7 +12,7 @@ class User < ApplicationRecord
   scope :all_except, ->(user) { where.not(id: user) }
 
   before_save do
-    @email = email.strip
+    @email = email.strip.downcase
   end
 
   after_save :create_anniversary_events

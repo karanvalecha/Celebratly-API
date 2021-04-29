@@ -12,3 +12,11 @@ json.upload_time_distance_in_words upload_policy.upload_time_distance_in_words
 json.status_uploads do
   json.array! occurrence.status_uploads, partial: "status_uploads/status_upload", as: :status_upload
 end
+
+if occurrence.reference
+  if profile_url = occurrence.reference.profile_url
+    json.photo_url profile_url
+  end
+end
+
+json.action_text "Your message for #{occurrence.title}"

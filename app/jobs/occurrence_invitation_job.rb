@@ -3,9 +3,9 @@ class OccurrenceInvitationJob
   
   def perform
     fcm = FCM.new(ENV['FIREBASE_SERVER_KEY'])
-    occs_due_tomorrow = Occurrence.all.select {|o| StatusUploadPolicy.new(o).notifiable? }
+    occs_due = Occurrence.all.select {|o| StatusUploadPolicy.new(o).allow_upload? }
 
-    occs_due_tomorrow.each do |occurrence|
+    occs_due.each do |occurrence|
       fcm_tokens = User.all_except(occurrence.event.reference).pluck(:fcm_token).compact
       options = { "notification": notification_payload(occurrence) }
       response = fcm.send(fcm_tokens, options)
@@ -22,9 +22,9 @@ class OccurrenceInvitationJob
 
   def get_occurence_title occurrence
     if occurrence.event.event_type == 'birthday'
-      title = "Its #{occurrence.event.reference.short_name}'s Birthday Tomorrow"
+      "Its #{occurrence.event.reference.short_name}'s Birthday Tomorrow"
     else
-      title = "Its #{occurrence.event.reference.short_name}'s Workiversary Tomorrow"
+      "Its #{occurrence.event.reference.short_name}'s Workiversary Tomorrow"
     end
   end
 
