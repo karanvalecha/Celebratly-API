@@ -15,6 +15,8 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user
+    params[:format] = 'json'
+
     authenticate_or_request_with_http_token do |token|
       begin
         jwt_payload = JWT.decode(token, Rails.application.secret_key_base).first
