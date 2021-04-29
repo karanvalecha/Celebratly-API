@@ -12,7 +12,7 @@ class StatusUploadPolicy
     if upload_start_time.future?
       "Starts in #{distance_of_time_in_words(Time.zone.now, upload_end_time)}"
     elsif upload_end_time.future?
-      "#{distance_of_time_in_words(Time.zone.now, upload_end_time)} remaining"
+      "Expires in #{distance_of_time_in_words(Time.zone.now, upload_end_time)}"
     end
   end
 

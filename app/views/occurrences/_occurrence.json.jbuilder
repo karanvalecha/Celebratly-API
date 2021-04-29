@@ -19,4 +19,4 @@ if occurrence.reference
   end
 end
 
-json.action_text "Your message for #{occurrence.title}"
+json.action_text occurrence.event&.reference&.full_name
