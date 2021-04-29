@@ -38,15 +38,23 @@ class OccurrenceVideoCreator < ApplicationJob
     'app/assets/images/template_end.png'
   end
 
+  def logo_path
+    'app/assets/images/small_logo.png'
+  end
+
   def make_video
     config = JSON.parse(File.read('config/videoshow.json'))
     config[:images] = []
     json_file = Tempfile.new
     image_files = []
 
+    image_files << intro_image
+
     @occurrence.status_uploads.each do |st|
       image_files << st.image_upload.url
     end
+
+    image_files << template_end_image
 
     image_files.compact.each do |url|
       img = MiniMagick::Image.open(url)
@@ -62,7 +70,7 @@ class OccurrenceVideoCreator < ApplicationJob
 
     output_file = "#{@occurrence.slug}.mp4"
 
-    `./node_modules/videoshow/bin/videoshow -c #{json_file.path} --audio #{audio_path} -o #{output_file} --debug`
+    `./node_modules/videoshow/bin/videoshow -c #{json_file.path} --audio #{audio_path} -o #{output_file} --logo #{logo_path} --debug`
 
     # for now it works only when uploading immediately after process
     @occurrence.published_video.attach(

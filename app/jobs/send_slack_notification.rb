@@ -5,7 +5,7 @@ class SendSlackNotification < ActiveJob::Base
     slack_hook_url = ENV['SLACK_GENERAL_HOOK']
     return unless slack_hook_url.present?
 
-    occs_due_today = Occurrence.where("DATE(start_at) = DATE(?)", Date.today).all
+    occs_due_today = Occurrence.all.select {|o| StatusUploadPolicy.new(o).notifiable? }
     occs_due_today.each do |occurrence|
       response = HTTParty.post(
         slack_hook_url,

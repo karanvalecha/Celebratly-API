@@ -1,18 +1,42 @@
 class StatusUploadPolicy
   attr_reader :occurrence
+  include ActionView::Helpers::DateHelper
+
+  delegate :start_at, :end_at, :event, to: :occurrence
 
   def initialize(occurrence)
     @occurrence = occurrence
   end
 
-  def allow_upload?
-    if occurrence.event.birthday? or occurrence.event.work_anniversary?
-      from = Time.now.yesterday.change(hour: 10) #10 AM yesterday
-      to = Time.now.change(hour: 10) # 10 AM today
-
-      occurrence.start_at.between?(from, to)
+  def upload_time_distance_in_words
+    if upload_start_time.future?
+      "Starts in #{distance_of_time_in_words(Time.zone.now, upload_end_time)}"
     else
-      Time.now.between?(occurrence.start_at, occurrence.end_at)
+      "Updated #{time_ago_in_words(upload_end_time)} ago"
     end
+  end
+
+  def upload_start_time
+    if occurrence.event.birthday? or occurrence.event.work_anniversary?
+      start_at.beginning_of_day.advance(days: -1).change(hour: 10)
+    else
+      start_at
+    end
+  end
+
+  def upload_end_time
+    if event.birthday? or event.work_anniversary?
+      end_at.beginning_of_day.change(hour: 10)
+    else
+      end_at
+    end
+  end
+
+  def allow_upload?
+    Time.zone.now.between?(upload_start_time, upload_end_time)
+  end
+
+  def notifiable?
+    Time.zone.now.between?(start_at, end_at)
   end
 end
