@@ -6,7 +6,7 @@ end
 
 task :compile_and_publish_video => :environment do
   Occurrence.all.select {|o| StatusUploadPolicy.new(o).notifiable? }.each do |occ|
-    if StatusUploadPolicy.new(occ).upload_end_time.past?
+    if true#StatusUploadPolicy.new(occ).upload_end_time.past?
       puts "Processing #{occ.title}"
 
       PublishVideoJob.perform_now(occ) unless occ.published_video_attachment
