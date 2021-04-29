@@ -15,15 +15,13 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user
-    if request.headers['Authorization'].present?
-      authenticate_with_http_token do |token|
-        begin
-          jwt_payload = JWT.decode(token, Rails.application.secret_key_base).first
+    authenticate_with_http_token do |token|
+      begin
+        jwt_payload = JWT.decode(token, Rails.application.secret_key_base).first
 
-          @current_user_id = jwt_payload['id']
-        rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError
-          head :unauthorized
-        end
+        @current_user_id = jwt_payload['id']
+      rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError
+        head :unauthorized
       end
     end
   end
