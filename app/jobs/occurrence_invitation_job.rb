@@ -23,7 +23,7 @@ class OccurrenceInvitationJob
     if occurrence.event.event_type == 'birthday'
       title = "Its #{occurrence.event.reference.short_name}'s Birthday"
     else
-      title = "Its #{occurrence.event.reference.short_name}'s Work anniversary"
+      title = "Its #{occurrence.event.reference.short_name}'s Workiversary"
     end
   end
 end

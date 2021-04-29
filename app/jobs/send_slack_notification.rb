@@ -54,7 +54,7 @@ class SendSlackNotification < ActiveJob::Base
     if occurrence.event.event_type == 'birthday'
       message = "*Happy Birthday #{user.full_name}* :tada:"
     elsif occurrence.event.event_type == 'work_anniversary'
-      message = "Happy Work anniversary *#{user.full_name}*."
+      message = "*Happy Woriversary #{user.full_name}*."
     else
       message = occurrence.title
     end
@@ -67,7 +67,7 @@ class SendSlackNotification < ActiveJob::Base
   def get_sub_message occurrence
     if occurrence.event.event_type == 'birthday'
       sub_message = File.readlines('public/birthday_messages.txt').sample
-    elsif
+    elsif occurrence.event.event_type == 'work_anniversary'
       sub_message = File.readlines('public/anniversary_messages.txt').sample
     else
       sub_message = occurrence.title
