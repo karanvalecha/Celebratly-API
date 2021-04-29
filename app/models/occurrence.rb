@@ -4,6 +4,7 @@ class Occurrence < ApplicationRecord
   has_one :reference, through: :event
   has_many :status_uploads, dependent: :destroy
 
+
   has_one_attached :published_video, service: :cloudinary_compiled_videos
 
   def slug

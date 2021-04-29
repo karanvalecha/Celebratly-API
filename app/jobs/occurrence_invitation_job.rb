@@ -3,7 +3,7 @@ class OccurrenceInvitationJob
   
   def perform
     fcm = FCM.new(ENV['FIREBASE_SERVER_KEY'])
-    occs_due_tomorrow = Occurrence.where("DATE(start_at) = DATE(?)", Date.tomorrow).all
+    occs_due_tomorrow = Occurrence.all.select {|o| StatusUploadPolicy.new(o).notifiable? }
 
     occs_due_tomorrow.each do |occurrence|
       fcm_tokens = User.all_except(occurrence.event.reference).pluck(:fcm_token).compact
