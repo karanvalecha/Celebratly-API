@@ -11,7 +11,7 @@ class Event < ApplicationRecord
 
   scope :custom, -> { where(system_generated: [false, nil]) }
 
-  after_save :create_custom_event_occurrences, :custom?
+  after_save :create_custom_event_occurrences, if: :custom?
 
   before_save do
     unless custom?
@@ -42,7 +42,11 @@ class Event < ApplicationRecord
   end
 
   def occurence_rule_to_s
-    IceCube::Rule.from_hash(occurence_rule).to_s
+    if occurence_rule.present?
+      IceCube::Rule.from_hash(occurence_rule).to_s
+    else
+      'Not recurring'
+    end
   end
 
   def get_default_caption
@@ -57,7 +61,7 @@ class Event < ApplicationRecord
   def schedule_with_rule
     schedule.add_recurrence_rule(
       IceCube::Rule.from_hash(occurence_rule)
-    )
+    ) if occurence_rule.present?
 
     schedule
   end
@@ -87,12 +91,17 @@ class Event < ApplicationRecord
     occurrences.destroy_all
 
     schedule_with_rule.occurrences_between(start_at, end_at).each_with_index do |date, index|
-      occurrences.create(
+      occ = occurrences.create(
         title: name,
-        start_at: start_at.beginning_of_day,
-        end_at: end_at.end_of_day,
+        start_at: date.change(hour: start_at.hour, minute: start_at.min),
+        end_at: date.change(hour: end_at.hour, minute: end_at.min),
         caption: "#{(index+1).ordinalize} occurrence"
       )
+      occ.update(
+        start_at: start_at,
+        end_at: end_at,
+        caption: nil
+      ) unless occurence_rule.present?
     end
   end
 end

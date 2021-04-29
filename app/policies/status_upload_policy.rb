@@ -11,13 +11,13 @@ class StatusUploadPolicy
   def upload_time_distance_in_words
     if upload_start_time.future?
       "Starts in #{distance_of_time_in_words(Time.zone.now, upload_end_time)}"
-    else
-      "Updated #{time_ago_in_words(upload_end_time)} ago"
+    elsif upload_end_time.future?
+      "#{distance_of_time_in_words(Time.zone.now, upload_end_time)} remaining"
     end
   end
 
   def upload_start_time
-    if occurrence.event.birthday? or occurrence.event.work_anniversary?
+    if event.birthday? or event.work_anniversary?
       start_at.beginning_of_day.advance(days: -1).change(hour: 10)
     else
       start_at
