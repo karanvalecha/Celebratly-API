@@ -20,10 +20,12 @@ class OccurrenceInvitationJob
   end
 
   def get_occurence_title occurrence
-    if occurrence.event.event_type == 'birthday'
-      title = "Its #{occurrence.event.reference.short_name}'s Birthday"
+    if occurrence.event.birthday?
+      "Its #{occurrence.event.reference.short_name}'s Birthday"
+    elsif occurrence.event.work_anniversary?
+      "Its #{occurrence.event.reference.short_name}'s Workiversary"
     else
-      title = "Its #{occurrence.event.reference.short_name}'s Workiversary"
+      occurrence.title
     end
   end
 end
