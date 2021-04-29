@@ -56,5 +56,7 @@ module OptimizePrime
     config.middleware.use ActionDispatch::Flash
 
     config.time_zone = 'Mumbai'
+
+    config.active_record.default_timezone = :local
   end
 end
