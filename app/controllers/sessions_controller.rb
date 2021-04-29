@@ -1,5 +1,6 @@
 class SessionsController < Devise::SessionsController
   respond_to :json
+  skip_before_action :authenticate_user, only: :create
 
   def create
     if ENV['ANDROID_SECRET'].present? && request.headers['Android-Secret'] != ENV['ANDROID_SECRET']
