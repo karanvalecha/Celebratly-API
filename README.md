@@ -31,7 +31,7 @@
   `bundle install`
 
 - ##### Start the server
-`rails s`
+   `rails s`
 
 
 ### Obtaining API Keys
