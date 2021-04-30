@@ -14,20 +14,24 @@
 
 ### Getting Started
 
-##### Get the latest snapshot
-`git clone https://github.com/karanvalecha/optimize-prime.git`
+- ##### Get the latest snapshot
+   `git clone https://github.com/karanvalecha/optimize-prime.git`
 
-##### Change directory
-`cd optimize-prime`
 
-##### Install NPM dependencies
-`npm install`
+- ##### Change directory
+  `cd optimize-prime`
 
-##### Install ffmpeg
-`brew install ffmpeg`
+- ##### Install NPM dependencies
+  `npm install`
 
-##### Install gems
-`bundle install`
+- ##### Install ffmpeg
+  `brew install ffmpeg`
+
+- ##### Install the gems
+  `bundle install`
+
+- ##### Start the server
+`rails s`
 
 
 ### Obtaining API Keys
