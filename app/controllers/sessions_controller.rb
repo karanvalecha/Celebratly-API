@@ -7,7 +7,7 @@ class SessionsController < Devise::SessionsController
       head :unauthorized and return
     end
 
-    user = User.find_by_email(sign_in_params[:email])
+    user = User.find_by_email(sign_in_params[:email].downcase)
 
     if user
       @new_user_session = true

@@ -21,6 +21,12 @@ class User < ApplicationRecord
     "#{full_name.split(' ').first} #{id}".parameterize
   end
 
+  def email
+    if val = super
+      val.downcase
+    end
+  end
+
   def short_name
     parts = full_name.split(' ')
     parts.first + ' ' + parts.last
