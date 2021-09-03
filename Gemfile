@@ -80,4 +80,3 @@ gem 'render_anywhere', :require => false
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
-
