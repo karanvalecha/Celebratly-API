@@ -71,3 +71,12 @@ gem 'sucker_punch', '~> 3.0'
 
 gem 'httparty', '~> 0.13.7'
 
+gem 'pdfkit', '~> 0.8.2'
+
+gem 'wkhtmltopdf-binary-edge'
+
+gem 'render_anywhere', :require => false
+
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'

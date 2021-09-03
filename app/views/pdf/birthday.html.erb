@@ -1,0 +1,9 @@
+<% 5.times do |elem|%>
+  <div class='page'>
+    <div class="birthday-card page-break">
+      <img src="https://image.freepik.com/free-vector/surprise-theme-happy-birthday-card-illustration_1344-199.jpg" alt="Birthday image">
+      <h1><%= File.readlines('public/birthday_messages.txt').sample%></h1>          
+      <h3>from Karan</h3>
+    </div>
+  </div>
+<% end %>
