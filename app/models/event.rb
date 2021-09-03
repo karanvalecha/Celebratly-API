@@ -100,7 +100,7 @@ class Event < ApplicationRecord
       occ.update(
         :start_at => start_at,
         :end_at => end_at,
-        :caption > nil
+        :caption => nil
       ) unless occurence_rule.present?
     end
   end
