@@ -12,8 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         name: checkout branch
-        with:
-          ref: main
 
       - uses: andrewmcodes/rubocop-linter-action@v3.3.0
         name: Initializing RuboCop Linter
