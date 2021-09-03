@@ -17,5 +17,6 @@ jobs:
         name: Initializing RuboCop Linter
         with:
           action_config_path: ".github/config/rubocop_linter_action.yml" # Note: this is the default location
+          exit_on_failure: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
