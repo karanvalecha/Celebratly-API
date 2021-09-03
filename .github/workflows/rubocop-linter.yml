@@ -1,22 +1,15 @@
-name: Linter Setup
+name: Linters
 
-on:
-  push:
-    branches:
-    - main
-  pull_request:
+on: [push]
 
 jobs:
-  setup:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-        name: checkout branch
-
-      - uses: andrewmcodes/rubocop-linter-action@v3.3.0
-        name: Initializing RuboCop Linter
+      - name: RuboCop Linter
+        uses: andrewmcodes/rubocop-linter-action@v3.3.0
         with:
           action_config_path: ".github/config/rubocop_linter_action.yml" # Note: this is the default location
-          exit_on_failure: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
