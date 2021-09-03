@@ -1,0 +1,10 @@
+check_name: "Ruby style-guide checks"
+
+versions:
+  - rubocop
+  - rubocop-rails: "2.8.1"
+  - rubocop-performance: "1.5.1"
+  - rubocop-rspec: "1.37.0"
+  - rubocop-shopify: "1.0.7"
+check_scope: "modified"
+base_branch: "origin/main"
