@@ -19,6 +19,7 @@ jobs:
       - name: rubocop
         uses: reviewdog/action-rubocop@v2
         with:
+          fail_on_error: true
           rubocop_version: 1.5.1
           rubocop_extensions: rubocop-rails:2.8.1 rubocop-performance:1.5.1 rubocop-rspec:1.37 rubocop-shopify:1.0.7
           github_token: ${{ secrets.github_token }}
