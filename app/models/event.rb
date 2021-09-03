@@ -98,7 +98,7 @@ class Event < ApplicationRecord
         caption: "#{(index+1).ordinalize} occurrence"
       )
       occ.update(
-        start_at: start_at,
+        :start_at => start_at,
         end_at: end_at,
         caption: nil
       ) unless occurence_rule.present?
