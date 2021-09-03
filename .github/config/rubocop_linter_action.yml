@@ -7,3 +7,4 @@ versions:
   - rubocop-rspec: "1.37.0"
   - rubocop-shopify: "1.0.7"
 check_scope: "modified"
+base_branch: "origin/main"
