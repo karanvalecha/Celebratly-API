@@ -1,9 +1,15 @@
-- name: RuboCop Linter Action
-  # You may pin to the exact commit or the version.
-  # uses: andrewmcodes-archive/rubocop-linter-action@c9de2ff0e58217d3aa9167324b9dabdd2c6eefbe
-  uses: andrewmcodes-archive/rubocop-linter-action@v3.3.0
-  with:
-    # Define a path to your optional action config file.
-    action_config_path: # optional, default is .github/config/rubocop_linter_action.yml
-    # Return exit code if linter returns some failures.
-    exit_on_failure: # optional, default is true
+name: Linters
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: RuboCop Linter
+        uses: andrewmcodes/rubocop-linter-action@v3.3.0
+        with:
+          action_config_path: ".github/config/rubocop_linter_action.yml" # Note: this is the default location
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
