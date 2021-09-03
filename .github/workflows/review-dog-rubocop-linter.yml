@@ -20,7 +20,6 @@ jobs:
         uses: reviewdog/action-rubocop@v2
         with:
           fail_on_error: true
-          rubocop_version: 1.5.1
-          rubocop_extensions: rubocop-rails:2.8.1 rubocop-performance:1.5.1 rubocop-rspec:1.37 rubocop-shopify:1.0.7
+          rubocop_extensions: rubocop-rails rubocop-performance rubocop-rspec rubocop-shopify
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review # Default is github-pr-check
