@@ -11,7 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        name: Initializing repo
+        name: checkout branch
+        with:
+          fetch-depth: 0
 
       - uses: andrewmcodes/rubocop-linter-action@v3.3.0
         name: Initializing RuboCop Linter
