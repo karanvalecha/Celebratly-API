@@ -10,10 +10,12 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-      - name: Preparing RuboCop Linter
       - uses: actions/checkout@v2
+        name: Initializing repo
+
       - uses: andrewmcodes/rubocop-linter-action@v3.3.0
-      - with:
+        name: Initializing RuboCop Linter
+        with:
           action_config_path: ".github/config/rubocop_linter_action.yml" # Note: this is the default location
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
