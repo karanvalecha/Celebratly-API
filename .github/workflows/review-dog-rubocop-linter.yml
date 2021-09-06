@@ -1,14 +1,11 @@
-name: Ruby style guide check
+name: PR Health checks
 
 on:
   pull_request:
-  push:
-    branches:
-      - main
 
 jobs:
-  rubocop:
-    name: runner / rubocop
+  ruby-style-guide:
+    name: Suggestions (if any) from Rubocop
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -23,3 +20,14 @@ jobs:
           reporter: github-pr-review # Default is github-pr-check
           filter_mode: diff_context
           rubocop_flags: "-c .rubocop.yml"
+  brakeman:
+    name: Vulnerable code reports (if any) from Brakeman
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v1
+      - name: brakeman
+        uses: reviewdog/action-brakeman@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review # Default is github-pr-check
