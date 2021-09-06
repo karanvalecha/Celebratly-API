@@ -22,3 +22,4 @@ jobs:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review # Default is github-pr-check
           filter_mode: diff_context
+          rubocop_flags: "-c .rubocop.yml"
