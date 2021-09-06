@@ -1,4 +1,4 @@
-name: Review
+name: Linters
 
 on:
   pull_request:
