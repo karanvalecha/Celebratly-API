@@ -1,11 +1,11 @@
-name: Health checks
+name: Linters
 
 on:
   pull_request:
 
 jobs:
   ruby-style-guide:
-    name: Code quality
+    name: Style guide
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
