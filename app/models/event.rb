@@ -1,4 +1,3 @@
-
 class Event < ApplicationRecord
   include ActionView::Helpers::TextHelper
 
@@ -78,12 +77,11 @@ class Event < ApplicationRecord
     return unless system_generated?
     return unless next_occurrence_this_year
 
-    occurrences.create({
+    occurrences.create(
       title: name,
       start_at: next_occurrence_this_year.beginning_of_day,
       end_at: next_occurrence_this_year.end_of_day,
       caption: get_default_caption
-    }
     )
   end
 
