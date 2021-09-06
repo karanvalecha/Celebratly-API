@@ -11,8 +11,7 @@ jobs:
       - name: Checkout branch
         uses: actions/checkout@v1
       - uses: ruby/setup-ruby@v1
-      - name: rubocop
-        uses: reviewdog/action-rubocop@v2
+      - uses: reviewdog/action-rubocop@v2
         with:
           fail_on_error: true
           rubocop_extensions: rubocop-rails rubocop-performance rubocop-rspec rubocop-shopify
@@ -26,8 +25,7 @@ jobs:
     steps:
       - name: Checkout branch
         uses: actions/checkout@v1
-      - name: brakeman
-        uses: reviewdog/action-brakeman@v1
+      - uses: reviewdog/action-brakeman@v1
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review # Default is github-pr-check
