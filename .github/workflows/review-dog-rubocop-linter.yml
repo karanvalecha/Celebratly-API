@@ -10,7 +10,6 @@ jobs:
     steps:
       - name: Checkout branch
         uses: actions/checkout@v1
-      - uses: ruby/setup-ruby@v1
       - uses: reviewdog/action-rubocop@v2
         with:
           fail_on_error: true
