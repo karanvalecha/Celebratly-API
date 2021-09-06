@@ -9,3 +9,4 @@ versions:
 
 check_scope: "modified"
 base_branch: "origin/main"
+rubocop_config_path: ".rubocop.yml"
