@@ -1,11 +1,11 @@
-name: Code quality
+name: Code Quality Checks
 
 on:
   pull_request:
 
 jobs:
   ruby-style-guide:
-    name: runner / rubocop
+    name: RuboCop 👮🏻‍♂️
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
@@ -21,7 +21,7 @@ jobs:
           filter_mode: diff_context
           rubocop_flags: "-c .rubocop.yml"
   brakeman:
-    name: runner / brakeman
+    name: Brakeman 🚦
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
