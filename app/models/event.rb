@@ -85,6 +85,7 @@ class Event < ApplicationRecord
     )
   end
 
+  
   def create_custom_event_occurrences
     return if system_generated?
 
