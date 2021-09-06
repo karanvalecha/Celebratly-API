@@ -1,0 +1,24 @@
+inherit_gem:
+  rubocop-shopify: rubocop.yml
+
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+AllCops:
+  # DisabledByDefault: false
+  # EnabledByDefault: true
+  Exclude:
+    - 'app/views/**/*'
+    - 'db/**/*'
+    - 'bin/**/*'
+    - 'csv/**/*'
+    - 'slate/**/*'
+    - 'vendor/bundle/**/*'
+    - 'node_modules/**/*'
+
+Lint/ConstantResolution:
+  Enabled: false
+Style/DocumentationMethod:
+  Enabled: false
