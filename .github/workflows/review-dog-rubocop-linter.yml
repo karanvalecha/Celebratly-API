@@ -1,11 +1,11 @@
-name: PR Health checks
+name: Health checks
 
 on:
   pull_request:
 
 jobs:
   ruby-style-guide:
-    name: Suggestions (if any) from Rubocop
+    name: Code quality
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -21,7 +21,7 @@ jobs:
           filter_mode: diff_context
           rubocop_flags: "-c .rubocop.yml"
   brakeman:
-    name: Vulnerable code reports (if any) from Brakeman
+    name: Vulnerability
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
