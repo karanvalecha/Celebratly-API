@@ -97,10 +97,11 @@ class Event < ApplicationRecord
         end_at: date.change(hour: end_at.hour, minute: end_at.min),
         caption: "#{(index+1).ordinalize} occurrence"
       )
-      occ.update(
+      occ.update({
         :start_at => start_at,
         :end_at => end_at,
         caption: nil
+      }
       ) unless occurence_rule.present?
     end
   end
