@@ -18,7 +18,7 @@ AllCops:
     - 'vendor/bundle/**/*'
     - 'node_modules/**/*'
 
-Lint/ConstantResolution:
-  Enabled: false
-Style/DocumentationMethod:
-  Enabled: false
+# Lint/ConstantResolution:
+#   Enabled: false
+# Style/DocumentationMethod:
+#   Enabled: false
