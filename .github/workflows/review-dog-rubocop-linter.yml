@@ -4,7 +4,7 @@ on: [pull_request]
 
 jobs:
   ruby-style-guide:
-    name: RuboCop style checks
+    name: RuboCop analysis
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
@@ -22,7 +22,7 @@ jobs:
           filter_mode: diff_context
           rubocop_flags: "-c .rubocop.yml"
   brakeman:
-    name: Brakeman code vulnerability checks
+    name: Brakeman security scan
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
