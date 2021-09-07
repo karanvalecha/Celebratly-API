@@ -18,7 +18,7 @@ jobs:
           fail_on_error: true
           rubocop_extensions: rubocop-rails:2.11 rubocop-performance:1.11 rubocop-rspec:2.4 rubocop-shopify:2.2
           github_token: ${{ secrets.github_token }}
-          reporter: github-pr-review # Default is github-pr-check
+#           reporter: github-pr-review # Default is github-pr-check
           filter_mode: diff_context
           rubocop_flags: "-c .rubocop.yml"
   brakeman:
