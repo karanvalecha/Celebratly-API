@@ -1,35 +1,25 @@
-name: Linters
+name: Ruby style guide check
 
-on: [pull_request]
+on:
+  pull_request:
+  push:
+    branches:
+      - main
 
 jobs:
-  ruby-style-guide:
-    name: RuboCop scan
+  rubocop:
+    name: runner / rubocop
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout branch
-        uses: actions/checkout@v2
-      - name: Install Ruby
-        uses: ruby/setup-ruby@v1
-      - name: RuboCop style check
+      - name: Check out code
+        uses: actions/checkout@v1
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0.0
+      - name: rubocop
         uses: reviewdog/action-rubocop@v2
         with:
-          github_token: ${{ secrets.github_token }}
-          rubocop_version: 1.20
-          rubocop_flags: "-c .rubocop.yml"
-          rubocop_extensions: rubocop-rails:2.11 rubocop-performance:1.11 rubocop-rspec:2.4 rubocop-shopify:2.2
-          fail_on_error: true
-          level: warning
-  brakeman:
-    name: Brakeman scan
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout branch
-        uses: actions/checkout@v2
-      - name: Brakeman vulnerability scan
-        uses: reviewdog/action-brakeman@v1
-        with:
+          rubocop_version: 1.5.1
+          rubocop_extensions: rubocop-rails:2.8.1 rubocop-performance:1.5.1 rubocop-rspec:1.37 rubocop-shopify:1.0.7
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review # Default is github-pr-check
-          fail_on_error: true
-          filter_mode: diff_context
