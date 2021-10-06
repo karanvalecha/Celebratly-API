@@ -4,31 +4,32 @@ on: [pull_request]
 
 jobs:
   ruby-style-guide:
-    name: RuboCop analysis
+    name: RuboCop scan
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
-      - name: Run RuboCop style checks
+      - name: RuboCop style check
         uses: reviewdog/action-rubocop@v2
         with:
-          rubocop_version: 1.20
-          fail_on_error: true
-          rubocop_extensions: rubocop-rails:2.11 rubocop-performance:1.11 rubocop-rspec:2.4 rubocop-shopify:2.2
           github_token: ${{ secrets.github_token }}
-#           reporter: github-pr-review # Default is github-pr-check
-          filter_mode: diff_context
+          rubocop_version: 1.20
           rubocop_flags: "-c .rubocop.yml"
+          rubocop_extensions: rubocop-rails:2.11 rubocop-performance:1.11 rubocop-rspec:2.4 rubocop-shopify:2.2
+          fail_on_error: true
+          level: warning
   brakeman:
-    name: Brakeman security scan
+    name: Brakeman scan
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v1
-      - name: Run code vulnerability checks with Brakeman
+        uses: actions/checkout@v2
+      - name: Brakeman vulnerability scan
         uses: reviewdog/action-brakeman@v1
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review # Default is github-pr-check
+          fail_on_error: true
+          filter_mode: diff_context
