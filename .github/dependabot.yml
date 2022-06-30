@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "03:30" # UTC
+    labels:
+      - "JavaScript"
+      - "dependencies"
+    pull-request-branch-name:
+      separator: "-"
+
+  - package-ecosystem: "bundler"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "03:30" # UTC
+    labels:
+      - "Ruby"
+      - "dependencies"
+    pull-request-branch-name:
+      separator: "-"
