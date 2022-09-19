@@ -39,7 +39,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise", "~> 4.7"
-gem "devise-jwt", "~> 0.8.1"
+gem "devise-jwt", "~> 0.10.0"
 
 gem "airrecord", "~> 1.0"
 
