@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/karanvalecha/optimize-prime#readme",
   "dependencies": {
-    "editly": "^0.11.1",
+    "editly": "^0.14.0",
     "videoshow": "^0.1.12"
   }
 }
